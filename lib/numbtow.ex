@@ -4,15 +4,10 @@ defmodule Numbtow do
   end
 
   def convert(number) do
-    is_valid = is_valid_number?(number)
-    if is_valid == :error do
-      raise "Not Valid Number"
+    if !is_integer(number) do
+      raise ArgumentError, message: "value passed is not integer"
     end
 
     true
-  end
-
-  defp is_valid_number?(number) do
-    Integer.parse(number)
   end
 end
