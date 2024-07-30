@@ -1,4 +1,5 @@
 defmodule NumbtowTest do
+  alias Numbtow.Errors.NotYetImplementedError
   use ExUnit.Case
   doctest Numbtow
 
@@ -8,7 +9,13 @@ defmodule NumbtowTest do
     end
   end
 
-  test "return true if value is integer" do
-    assert Numbtow.convert(2) == true
+  test "return string two if value is integer 2" do
+    assert Numbtow.convert(2) == "two"
+  end
+
+  test "return an error if integer more than 10" do
+    assert_raise NotYetImplementedError, "not yet implemented", fn  ->
+      Numbtow.convert(22)
+    end
   end
 end
